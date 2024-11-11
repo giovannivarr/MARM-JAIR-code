@@ -1,0 +1,94 @@
+Semantics=SingleAssignment;
+
+Agent Environment
+	Vars:
+		evader_2_1: boolean;
+		evader_1_1: boolean;
+		evader_2_3: boolean;
+		evader_2_2: boolean;
+		evader_1_2: boolean;
+		evader_1_3: boolean;
+	end Vars
+	Actions = { };
+	Protocol:
+	end Protocol
+	Evolution:
+		evader_2_1=true	if ( Agent0.Action = hit_evader_1_1 and Agent1.Action = hit_evader_2_1 ) or ( Agent0.Action = hit_evader_1_2 and Agent1.Action = hit_evader_2_1 ) or ( Agent0.Action = hit_evader_1_3 and Agent1.Action = hit_evader_2_1 ) or ( Agent0.Action = nil and Agent1.Action = hit_evader_2_1 ) or ( evader_2_1 = true and Agent0.Action = nil and Agent1.Action = nil );
+		evader_2_1=false	if ( evader_2_1 = false and Agent0.Action = nil and Agent1.Action = nil );
+		evader_1_1=true	if ( Agent0.Action = hit_evader_1_1 and Agent1.Action = hit_evader_2_1 ) or ( Agent0.Action = hit_evader_1_1 and Agent1.Action = hit_evader_2_2 ) or ( Agent0.Action = hit_evader_1_1 and Agent1.Action = hit_evader_2_3 ) or ( Agent0.Action = hit_evader_1_1 and Agent1.Action = nil ) or ( evader_1_1 = true and Agent0.Action = nil and Agent1.Action = nil );
+		evader_1_1=false	if ( evader_1_1 = false and Agent0.Action = nil and Agent1.Action = nil );
+		evader_2_3=true	if ( Agent0.Action = hit_evader_1_1 and Agent1.Action = hit_evader_2_3 ) or ( Agent0.Action = hit_evader_1_2 and Agent1.Action = hit_evader_2_3 ) or ( Agent0.Action = hit_evader_1_3 and Agent1.Action = hit_evader_2_3 ) or ( Agent0.Action = nil and Agent1.Action = hit_evader_2_3 ) or ( evader_2_3 = true and Agent0.Action = nil and Agent1.Action = nil );
+		evader_2_3=false	if ( evader_2_3 = false and Agent0.Action = nil and Agent1.Action = nil );
+		evader_2_2=true	if ( Agent0.Action = hit_evader_1_1 and Agent1.Action = hit_evader_2_2 ) or ( Agent0.Action = hit_evader_1_2 and Agent1.Action = hit_evader_2_2 ) or ( Agent0.Action = hit_evader_1_3 and Agent1.Action = hit_evader_2_2 ) or ( Agent0.Action = nil and Agent1.Action = hit_evader_2_2 ) or ( evader_2_2 = true and Agent0.Action = nil and Agent1.Action = nil );
+		evader_2_2=false	if ( evader_2_2 = false and Agent0.Action = nil and Agent1.Action = nil );
+		evader_1_2=true	if ( Agent0.Action = hit_evader_1_2 and Agent1.Action = hit_evader_2_1 ) or ( Agent0.Action = hit_evader_1_2 and Agent1.Action = hit_evader_2_2 ) or ( Agent0.Action = hit_evader_1_2 and Agent1.Action = hit_evader_2_3 ) or ( Agent0.Action = hit_evader_1_2 and Agent1.Action = nil ) or ( evader_1_2 = true and Agent0.Action = nil and Agent1.Action = nil );
+		evader_1_2=false	if ( evader_1_2 = false and Agent0.Action = nil and Agent1.Action = nil );
+		evader_1_3=true	if ( Agent0.Action = hit_evader_1_3 and Agent1.Action = hit_evader_2_1 ) or ( Agent0.Action = hit_evader_1_3 and Agent1.Action = hit_evader_2_2 ) or ( Agent0.Action = hit_evader_1_3 and Agent1.Action = hit_evader_2_3 ) or ( Agent0.Action = hit_evader_1_3 and Agent1.Action = nil ) or ( evader_1_3 = true and Agent0.Action = nil and Agent1.Action = nil );
+		evader_1_3=false	if ( evader_1_3 = false and Agent0.Action = nil and Agent1.Action = nil );
+		evader_1_1=false	if ( evader_1_1 = true and !( Agent0.Action = hit_evader_1_1 ) );
+		evader_2_1=false	if ( evader_2_1 = true and !( Agent1.Action = hit_evader_2_1 ) );
+		evader_1_3=false	if ( evader_1_3 = true and !( Agent0.Action = hit_evader_1_3 ) );
+		evader_2_3=false	if ( evader_2_3 = true and !( Agent1.Action = hit_evader_2_3 ) );
+		evader_1_2=false	if ( evader_1_2 = true and !( Agent0.Action = hit_evader_1_2 ) );
+		evader_2_2=false	if ( evader_2_2 = true and !( Agent1.Action = hit_evader_2_2 ) );
+	end Evolution
+end Agent
+
+Agent Agent0
+	Lobsvars = { evader_1_1, evader_1_2, evader_1_3 };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { hit_evader_1_1, hit_evader_1_2, hit_evader_1_3, nil };
+	Protocol:
+		agent_dummy = true or agent_dummy = false:	{ hit_evader_1_1 };
+		agent_dummy = true or agent_dummy = false:	{ hit_evader_1_2 };
+		agent_dummy = true or agent_dummy = false:	{ hit_evader_1_3 };
+		agent_dummy = true or agent_dummy = false:	{ nil };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent1
+	Lobsvars = { evader_2_1, evader_2_2, evader_2_3 };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { hit_evader_2_1, hit_evader_2_2, hit_evader_2_3, nil };
+	Protocol:
+		agent_dummy = true or agent_dummy = false:	{ hit_evader_2_1 };
+		agent_dummy = true or agent_dummy = false:	{ hit_evader_2_2 };
+		agent_dummy = true or agent_dummy = false:	{ hit_evader_2_3 };
+		agent_dummy = true or agent_dummy = false:	{ nil };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Evaluation
+	evader_2_1 if Environment.evader_2_1 = true;
+	evader_1_1 if Environment.evader_1_1 = true;
+	evader_2_3 if Environment.evader_2_3 = true;
+	evader_2_2 if Environment.evader_2_2 = true;
+	evader_1_2 if Environment.evader_1_2 = true;
+	evader_1_3 if Environment.evader_1_3 = true;
+end Evaluation
+
+InitStates
+	Environment.evader_2_1 = false and Environment.evader_1_1 = false and Environment.evader_2_3 = false and Environment.evader_2_2 = false and Environment.evader_1_2 = false and Environment.evader_1_3 = false and
+	Agent0.agent_dummy = false and
+	Agent1.agent_dummy = false;
+end InitStates
+
+Groups
+	gA = { Agent0, Agent1 };
+end Groups
+
+Formulae
+	LTL ! ( X ( evader_1_1 and !evader_2_1 and !evader_1_2 and !evader_2_2 and !evader_1_3 and evader_2_3 and X ( !evader_1_1 and evader_2_1 and !evader_1_2 and !evader_2_2 and evader_1_3 and !evader_2_3 and X ( !evader_1_1 and !evader_2_1 and evader_1_2 and evader_2_2 and !evader_1_3 and !evader_2_3 ) ) ) ) ;
+end Formulae

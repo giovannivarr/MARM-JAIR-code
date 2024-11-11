@@ -1,0 +1,8 @@
+0 # initial state
+[3] # terminal state
+(0,0,'!pursuer_0+evader_0',ConstantRewardFunction(0))
+(0,1,'pursuer_0+evader_0',ConstantRewardFunction(0))
+(1,1,'!pursuer_1+evader_2',ConstantRewardFunction(0))
+(1,2,'pursuer_1+evader_2',ConstantRewardFunction(0))
+(2,2,'!pursuer_0+evader_1|!pursuer_1+evader_1',ConstantRewardFunction(0))
+(2,3,'pursuer_0+evader_1&pursuer_1+evader_1',ConstantRewardFunction(1))

@@ -1,0 +1,229 @@
+Semantics=SingleAssignment;
+
+Agent Environment
+	Vars:
+		goal_4_reached: boolean;
+		goal_6_reached: boolean;
+		goal_7_reached: boolean;
+		goal_5_reached: boolean;
+		goal_9_reached: boolean;
+		goal_2_reached: boolean;
+		goal_8_reached: boolean;
+		goal_1_reached: boolean;
+		goal_10_reached: boolean;
+		rendezvous: boolean;
+		goal_3_reached: boolean;
+	end Vars
+	Actions = { };
+	Protocol:
+	end Protocol
+	Evolution:
+		goal_4_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_6_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_7_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_5_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_9_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_2_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_8_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_1_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		goal_10_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+		rendezvous=true	if ( Agent0.Action = rendezvous and Agent1.Action = rendezvous and Agent2.Action = rendezvous and Agent3.Action = rendezvous and Agent4.Action = rendezvous and Agent5.Action = rendezvous and Agent6.Action = rendezvous and Agent7.Action = rendezvous and Agent8.Action = rendezvous and Agent9.Action = rendezvous );
+		goal_3_reached=true	if ( Agent0.Action = goal_1 and Agent1.Action = goal_2 and Agent2.Action = goal_3 and Agent3.Action = goal_4 and Agent4.Action = goal_5 and Agent5.Action = goal_6 and Agent6.Action = goal_7 and Agent7.Action = goal_8 and Agent8.Action = goal_9 and Agent9.Action = goal_10 );
+	end Evolution
+end Agent
+
+Agent Agent0
+	Lobsvars = { rendezvous, goal_1_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_1 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_1 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent1
+	Lobsvars = { rendezvous, goal_2_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_2 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_2 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent2
+	Lobsvars = { rendezvous, goal_3_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_3 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_3 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent3
+	Lobsvars = { goal_4_reached, rendezvous };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_4 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_4 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent4
+	Lobsvars = { rendezvous, goal_5_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_5 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_5 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent5
+	Lobsvars = { rendezvous, goal_6_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_6 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_6 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent6
+	Lobsvars = { rendezvous, goal_7_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_7 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_7 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent7
+	Lobsvars = { rendezvous, goal_8_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_8 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_8 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent8
+	Lobsvars = { rendezvous, goal_9_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_9 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_9 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Agent Agent9
+	Lobsvars = { rendezvous, goal_10_reached };
+	Vars:
+		agent_dummy: boolean;
+	end Vars
+	Actions = { rendezvous, goal_10 };
+	Protocol:
+		Environment.rendezvous = false:	{ rendezvous };
+		Environment.rendezvous = true:	{ goal_10 };
+	end Protocol
+	Evolution:
+		agent_dummy = true	if agent_dummy = true;
+		agent_dummy = false	if agent_dummy = false;
+	end Evolution
+end Agent
+
+Evaluation
+	goal_4_reached if Environment.goal_4_reached = true;
+	goal_6_reached if Environment.goal_6_reached = true;
+	goal_7_reached if Environment.goal_7_reached = true;
+	goal_5_reached if Environment.goal_5_reached = true;
+	goal_9_reached if Environment.goal_9_reached = true;
+	goal_2_reached if Environment.goal_2_reached = true;
+	goal_8_reached if Environment.goal_8_reached = true;
+	goal_1_reached if Environment.goal_1_reached = true;
+	goal_10_reached if Environment.goal_10_reached = true;
+	rendezvous if Environment.rendezvous = true;
+	goal_3_reached if Environment.goal_3_reached = true;
+end Evaluation
+
+InitStates
+	Environment.goal_4_reached = false and Environment.goal_6_reached = false and Environment.goal_7_reached = false and Environment.goal_5_reached = false and Environment.goal_9_reached = false and Environment.goal_2_reached = false and Environment.goal_8_reached = false and Environment.goal_1_reached = false and Environment.goal_10_reached = false and Environment.rendezvous = false and Environment.goal_3_reached = false and
+	Agent0.agent_dummy = false and
+	Agent1.agent_dummy = false and
+	Agent2.agent_dummy = false and
+	Agent3.agent_dummy = false and
+	Agent4.agent_dummy = false and
+	Agent5.agent_dummy = false and
+	Agent6.agent_dummy = false and
+	Agent7.agent_dummy = false and
+	Agent8.agent_dummy = false and
+	Agent9.agent_dummy = false;
+end InitStates
+
+Groups
+	gA = { Agent0, Agent1, Agent2, Agent3, Agent4, Agent5, Agent6, Agent7, Agent8, Agent9 };
+end Groups
+
+Formulae
+	<gA> F ( goal_1_reached and goal_2_reached and goal_3_reached and goal_4_reached and goal_5_reached and goal_6_reached and goal_7_reached and goal_8_reached and goal_9_reached and goal_10_reached ) ;
+end Formulae
